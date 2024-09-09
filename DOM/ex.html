@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO</title>
+</head>
+<body>
+    <div>
+        <h1>TO DO</h1>
+        <input type="text" placeholder="Enter Task">
+        <button onclick="Add()">Add Todo</button>
+    </div>
+</body>
+<script>
+    let cnt = 1; // Moved cnt outside the Add function to persist and increment
+    function del(index){
+        const element = document.getElementById(index);
+        element.parentNode.removeChild(element);
+    }
+    function Add(){
+        const el = document.createElement("div");
+        el.setAttribute("id","todo-"+cnt);
+        const val = document.querySelector("input")
+        el.innerHTML = "<div> "+val.value+" <button onclick ='del(\"todo-"+cnt+"\")'> Delete</button></div>";
+        document.querySelector("body").appendChild(el);
+        cnt++;
+    }
+</script>
+</html>
